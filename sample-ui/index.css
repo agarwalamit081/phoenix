@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neo-Bento Glassmorphism - Digital Void Dark Theme */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Sonic Violet */
+    --primary: 271 76% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Mist Grey */
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 0 0% 55%;
+
+    /* Neon Mint */
+    --accent: 150 100% 50%;
+    --accent-foreground: 0 0% 2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 271 76% 53%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --sonic-violet: 271 76% 53%;
+    --neon-mint: 150 100% 50%;
+    --dusty-rose: 350 30% 65%;
+    --void-black: 0 0% 2%;
+    --glass-bg: 0 0% 8%;
+    --glass-border: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-violet-mint: linear-gradient(135deg, hsl(271 76% 53%), hsl(150 100% 50%));
+    --gradient-violet-glow: linear-gradient(180deg, hsl(271 76% 53% / 0.3), transparent);
+    --gradient-dark-fade: linear-gradient(180deg, hsl(0 0% 2% / 0), hsl(0 0% 2%));
+
+    /* Shadows */
+    --glow-violet: 0 0 30px hsl(271 76% 53% / 0.4);
+    --glow-mint: 0 0 20px hsl(150 100% 50% / 0.3);
+    --glow-soft: 0 0 60px hsl(271 76% 53% / 0.15);
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 271 76% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 271 76% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    background: hsl(var(--glass-bg) / 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--glass-border) / 0.08);
+  }
+
+  .glass-strong {
+    background: hsl(var(--glass-bg) / 0.8);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid hsl(var(--glass-border) / 0.12);
+  }
+
+  .glass-violet {
+    background: hsl(var(--sonic-violet) / 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--sonic-violet) / 0.3);
+  }
+
+  /* Glow effects */
+  .glow-violet {
+    box-shadow: var(--glow-violet);
+  }
+
+  .glow-mint {
+    box-shadow: var(--glow-mint);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: var(--gradient-violet-mint);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pulse animation for hotspots */
+  .pulse-ring {
+    animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .pulse-ring-slow {
+    animation: pulseRing 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Waveform animation */
+  .waveform-bar {
+    animation: waveform 1.2s ease-in-out infinite;
+  }
+
+  /* Float animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Shimmer / glitter */
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      hsl(var(--sonic-violet) / 0.15) 37%,
+      hsl(var(--neon-mint) / 0.1) 63%,
+      transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  .rotate-slow {
+    animation: rotateSlow 8s linear infinite;
+  }
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.1;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes waveform {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 999px;
+}
