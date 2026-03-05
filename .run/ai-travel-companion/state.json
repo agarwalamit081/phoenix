@@ -1,0 +1,42 @@
+{
+  "started_at": 1772467406,
+  "services": [
+    {
+      "name": "backend",
+      "pid": 60153,
+      "pgid": 60153,
+      "cmd": [
+        "uvicorn",
+        "src.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ]
+    },
+    {
+      "name": "voice-worker",
+      "pid": 60154,
+      "pgid": 60154,
+      "cmd": [
+        "python",
+        "src/voice/voice_agent_worker.py"
+      ]
+    },
+    {
+      "name": "frontend",
+      "pid": 60155,
+      "pgid": 60155,
+      "cmd": [
+        "npm",
+        "run",
+        "dev",
+        "--",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8080"
+      ]
+    }
+  ]
+}
